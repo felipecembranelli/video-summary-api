@@ -1,0 +1,1 @@
+﻿az deployment group create --name DeployLocalTemplate --resource-group rg_eastus_88859_1_173385094967 --template-file azuredeploywebapp.json --verbose
