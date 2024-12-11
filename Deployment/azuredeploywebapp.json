@@ -11,7 +11,7 @@
   "parameters": {
     "webAppName": {
       "type": "string",
-      "defaultValue": "[format('webApp-{0}', 'video-summary-api'))]",
+      "defaultValue": "[format('webApp-{0}','video-summary-api-dotnet')]",
       "minLength": 2,
       "metadata": {
         "description": "Video Summary API Web app."
