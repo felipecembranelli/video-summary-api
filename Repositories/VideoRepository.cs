@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using OpenAiVideoSummary.Api.Model;
@@ -9,8 +10,8 @@ namespace OpenAiVideoSummary.Api.Repository
     {
         private readonly IMongoCollection<Video> _collection;
 
-        public VideoRepository(IOptions<DatabaseSettings> databaseSettings) 
-            : base(databaseSettings, "videos")
+        public VideoRepository(IOptions<DatabaseSettings> databaseSettings, ILogger<BaseRepository<Video>> logger) 
+            : base(databaseSettings, "videos", logger)
         {
             _collection = base._collection;
         }

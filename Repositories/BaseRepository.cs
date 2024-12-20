@@ -13,14 +13,20 @@ namespace OpenAiVideoSummary.Api.Repository
     public class BaseRepository<T> : IBaseRepository<T>
     {
         protected readonly IMongoCollection<T> _collection;
+        private readonly ILogger<BaseRepository<T>> _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseRepository{T}"/> class.
         /// </summary>
         /// <param name="databaseSettings">The database settings.</param>
         /// <param name="collectionName">The name of the collection.</param>
-        public BaseRepository(IOptions<DatabaseSettings> databaseSettings, string collectionName)
+        public BaseRepository(IOptions<DatabaseSettings> databaseSettings, string collectionName, ILogger<BaseRepository<T>> logger)
         {
+            _logger = logger;
+            _logger.LogInformation($"Connecting to database: {databaseSettings.Value.ConnectionString}");
+            _logger.LogInformation($"Connecting to database: {databaseSettings.Value.DatabaseName}");
+            _logger.LogInformation($"Connecting to database: {databaseSettings.Value.CollectionName}");
+
             var mongoClient = new MongoClient(
                databaseSettings.Value.ConnectionString);
 

@@ -8,8 +8,8 @@ namespace OpenAiVideoSummary.Api.Repository
     {
         
 
-        public ChannelRepository(IOptions<DatabaseSettings> databaseSettings) 
-            : base(databaseSettings, "channels")
+        public ChannelRepository(IOptions<DatabaseSettings> databaseSettings, ILogger<BaseRepository<Channel>> logger) 
+            : base(databaseSettings, "channels", logger)
         {
         }
 
