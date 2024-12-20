@@ -21,8 +21,8 @@ namespace OpenAiVideoSummary.Api.Model
         [BsonElement("thumbnailMediumWidth")]
         public string ThumbnailMediumWidth { get; set; }
 
-        [BsonElement("chanhelCategory")]
-        public string ChanhelCategory { get; set; } = "";
+        [BsonElement("channelCategory")]
+        public string ChannelCategory { get; set; } = "";
 
         [BsonElement("channelDescription")]
         public string ChannelDescription { get; set; } = "";

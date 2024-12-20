@@ -11,12 +11,14 @@ namespace OpenAiVideoSummary.Api.Tests
     public class ChannelServiceTests
     {
         private readonly Mock<IBaseRepository<Channel>> _mockChannelRepository;
+        private readonly Mock<IVideoRepository<Video>> _mockVideoRepository;
         private readonly ChannelService _channelService;
 
         public ChannelServiceTests()
         {
             _mockChannelRepository = new Mock<IBaseRepository<Channel>>();
-            _channelService = new ChannelService(_mockChannelRepository.Object);
+            _mockVideoRepository = new Mock<IVideoRepository<Video>>();
+            _channelService = new ChannelService(_mockChannelRepository.Object, _mockVideoRepository.Object);
         }
 
         [Fact]

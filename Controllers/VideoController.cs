@@ -10,7 +10,7 @@ namespace OpenAiVideoSummary.Api.Controllers
     /// Controller for managing video resources.
     /// </summary>
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/videos")]
     public class VideoController : ControllerBase
     {
         private readonly IVideoService _videoService;
@@ -41,9 +41,9 @@ namespace OpenAiVideoSummary.Api.Controllers
         /// <param name="id">The ID of the video.</param>
         /// <returns>The video with the specified ID.</returns>
         [HttpGet("{id}")]
-        public async Task<ActionResult<Video>> GetVideoById(string id)
+        public async Task<ActionResult<Video>> GetVideoById(string channelId)
         {
-            var video = await _videoService.GetVideoByIdAsync(id);
+            var video = await _videoService.GetVideoByIdAsync(channelId);
             if (video == null)
             {
                 return NotFound();

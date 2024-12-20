@@ -11,14 +11,16 @@ namespace OpenAiVideoSummary.Api.Service
     public class ChannelService : IChannelService
     {
         private readonly IBaseRepository<Channel> _channelRepository;
+        private readonly IVideoRepository<Video> _videoRepository;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ChannelService"/> class.
         /// </summary>
         /// <param name="channelRepository">The channel repository.</param>
-        public ChannelService(IBaseRepository<Channel> channelRepository)
+        public ChannelService(IBaseRepository<Channel> channelRepository, IVideoRepository<Video> videoRepository)
         {
             _channelRepository = channelRepository;
+            _videoRepository = videoRepository;
         }
 
         /// <summary>
@@ -38,6 +40,16 @@ namespace OpenAiVideoSummary.Api.Service
         public async Task<Channel> GetChannelByIdAsync(string id)
         {
             return await _channelRepository.GetByIdAsync(id);
+        }
+
+        /// <summary>
+        /// Gets a list of videos by channel ID asynchronously.
+        /// </summary>
+        /// <param name="channelId">The ID of the channel.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result contains the channel with the specified ID.</returns>
+        public async Task<List<Video>> GetVideosByChannelIdAsync(string channelId)
+        {
+            return await _videoRepository.GetAllVideosByChannelIdAsync(channelId);
         }
 
         /// <summary>

@@ -26,5 +26,24 @@ namespace OpenAiVideoSummary.Api.Model
 
         [BsonElement("summary")]
         public string Summary { get; set; } = "";
+
+        [BsonElement("thumbnailMediumUrl")]
+        public string ThumbnailMediumUrl { get; set; } = "";
+
+        [BsonElement("thumbnailMediumHeight")]
+        public string ThumbnailMediumHeight { get; set; } = "";
+
+        [BsonElement("thumbnailMediumWidth")]
+        public string ThumbnailMediumWidth { get; set; } = "";
+
+        [BsonElement("publishedAt")]
+        public string PublishedAt { get; set; } = "";
+
+        [BsonElement("topics")]
+        public string[] Topics { get; set; }
+
+        [BsonElement("topicsAdv")]
+        public string[] TopicsAdv { get; set; }
+
     }
 }

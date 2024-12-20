@@ -12,7 +12,7 @@ namespace OpenAiVideoSummary.Api.Repository
     /// <typeparam name="T">The type of the entities in the collection.</typeparam>
     public class BaseRepository<T> : IBaseRepository<T>
     {
-        private readonly IMongoCollection<T> _collection;
+        protected readonly IMongoCollection<T> _collection;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseRepository{T}"/> class.
@@ -46,7 +46,7 @@ namespace OpenAiVideoSummary.Api.Repository
         /// <returns>A task that represents the asynchronous operation. The task result contains the entity.</returns>
         public async Task<T> GetByIdAsync(string id)
         {
-            return await _collection.Find(Builders<T>.Filter.Eq("Id", id)).FirstOrDefaultAsync();
+            return await _collection.Find(Builders<T>.Filter.Eq("channelId", id)).FirstOrDefaultAsync();
         }
 
         /// <summary>

@@ -10,7 +10,7 @@ namespace OpenAiVideoSummary.Api.Controllers
     /// Controller for managing channels.
     /// </summary>
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/channels")]
     public class ChannelController : ControllerBase
     {
         private readonly IChannelService _channelService;
@@ -49,6 +49,23 @@ namespace OpenAiVideoSummary.Api.Controllers
                 return NotFound();
             }
             return Ok(channel);
+        }
+
+        /// <summary>
+        /// Gets a list of videos by channel ID.
+        /// </summary>
+        /// <param name="id">The ID of the channel.</param>
+        /// <returns>The channel with the specified ID.</returns>
+        [HttpGet("{channelId}/videos")]
+        public async Task<ActionResult<List<Video>>> GetVideosByChannelId(string channelId)
+        {
+            var videos = await _channelService.GetVideosByChannelIdAsync(channelId);
+
+            if (videos == null)
+            {
+                return NotFound();
+            }
+            return Ok(videos);
         }
 
         /// <summary>
