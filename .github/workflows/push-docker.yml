@@ -1,9 +1,8 @@
 ﻿name: Build and Publish Docker Image
 
 on:
-  push:
-    branches:
-      - PR_KUBIYA
+  pull_request:
+    branches: [ PR_KUBIYA ]
 
 jobs:
   build:
