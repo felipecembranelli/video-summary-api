@@ -29,4 +29,8 @@
     <Folder Include="Tests\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include=".github\workflows\push-docker.yml" />
+  </ItemGroup>
+
 </Project>
