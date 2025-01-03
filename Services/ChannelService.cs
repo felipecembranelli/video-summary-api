@@ -29,6 +29,7 @@ namespace OpenAiVideoSummary.Api.Service
         /// <returns>A task that represents the asynchronous operation. The task result contains a list of channels.</returns>
         public async Task<List<Channel>> GetAllChannelsAsync()
         {
+
             //return await _channelRepository.GetAllAsync();
             return null;
         }
