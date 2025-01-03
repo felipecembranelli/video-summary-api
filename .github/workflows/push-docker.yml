@@ -21,6 +21,9 @@ jobs:
     - name: Build the application
       run: dotnet build --configuration Release
 
+    - name: Run tests
+      run: dotnet test --configuration Release
+
     - name: Publish the application
       run: dotnet publish --configuration Release --output ./publish
 
