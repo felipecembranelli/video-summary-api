@@ -1,6 +1,6 @@
 # YoutubeBlink API (OpenAI Video Summary API)
 
-This API is part of the YouTubeBlink application, an app used to automatically create video summaries of YouTube channels and help me keep track of my favorite content. The full description of the solution can be found in the article below. Initially I used Langchain, Javascript and OpenAI APIs. Later I rewrote the API in .NET, for study and learning purposes.
+This API is part of my YouTubeBlink application, an app used to automatically create video summaries of YouTube channels and help me keep track of my favorite content. The full description of the solution can be found in the article below. Initially I used Langchain, Javascript and OpenAI APIs. Later I rewrote the API in .NET, for study and learning purposes.
 
 Live App Demo: https://openai-video-summary-fe.vercel.app/
 
