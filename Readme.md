@@ -21,6 +21,8 @@ Medium article: https://medium.com/@felipecembranelli/youtubeblink-an-openai-vid
 ```
 git clone https://github.com/felipecembranelli/video-summary-api.git
 
+cd video-summary-api
+
 ```
 2. Install dependencies:
 
