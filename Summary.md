@@ -20,21 +20,30 @@ I decided to use the code from one of the components of a personal app, called Y
 
 https://medium.com/@felipecembranelli/youtubeblink-an-openai-video-summary-generator-37ab541c9493
 
-SCREENSHOT
+![youtubeblink](https://github.com/user-attachments/assets/d53e5669-5146-47b9-9507-0cba4227d708)
+
 
 # GitHub workflow
 
 I created a new workflow to build in a docker container and push to the docker registry (DockerHub). To do this, I configured the DockerHub credentials using GitHub secrets.
 
-LINK
-
 After setting up a new branch and simulating the test failure, I verified that my Kubiya use case had created a webhook in my repository and that information was flowing to the Kubiya platform.
 
-SCREENSHOT
+![webhook_github](https://github.com/user-attachments/assets/8c3d4ba2-763d-4c62-850a-61dae39a20f2)
 
-# Note
+# Notes
 
-I noticed that I was getting some errors in Slack, likely related to permission limitations on the Kubi access token for my repository. Since the task required a public repository, as soon as I set my repository to public, Kubi started collecting information correctly. Further investigation would be needed to properly set up the access token and troubleshoot the issue.
+- I noticed that I was getting some errors in Slack, likely related to permission limitations on the Kubi access token for my repository. Since the task required a public repository, as soon as I set my repository to public, Kubi started collecting information correctly. Further investigation would be needed to properly set up the access token and troubleshoot the issue.
 
+- The documentation provided during the Use Case configuration was useful, especially the Configure Settings section:
+
+![config](https://github.com/user-attachments/assets/9b98103a-84e1-403b-ae39-c965196f0686)
+
+- Some differences between the online documentation and the web platform UI caused a bit of confusion, but nothing too critical:
+
+  
+![documentatin_difference](https://github.com/user-attachments/assets/67e3157d-f065-44de-962b-82c07c1728cb)
+
+![documentatin_difference3](https://github.com/user-attachments/assets/45de095e-3388-4d0b-b006-6eb8c975a188)
 
 
