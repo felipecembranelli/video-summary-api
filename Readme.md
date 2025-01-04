@@ -1,6 +1,13 @@
-﻿# OpenAI Video Summary API
+# YoutubeBlink API (OpenAI Video Summary API)
 
-This project is an API for managing video summaries using MongoDB as the database. It includes models, repositories, services, and controllers for `Channel` and `Video` entities.
+This API is part of the YouTubeBlink application, an app used to automatically create video summaries of YouTube channels and help me keep track of my favorite content. The full description of the solution can be found in the article below. Initially I used Langchain, Javascript and OpenAI APIs. Later I rewrote the API in .NET, for study and learning purposes.
+
+Live App Demo: https://openai-video-summary-fe.vercel.app/
+
+Medium article: https://medium.com/@felipecembranelli/youtubeblink-an-openai-video-summary-generator-37ab541c9493
+
+![Screen Shot 2024-06-04 at 10 40 50 AM](https://github.com/felipecembranelli/youtubeblink/assets/5788479/9d1e8c24-7536-490c-b22c-c7a4ad8c2745)
+
 
 ## Project Structure
 
