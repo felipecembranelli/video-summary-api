@@ -36,6 +36,10 @@ Run the application using the following command:
 ```
 dotnet run
 
+Access link:
+
+http://localhost:5129/swagger/index.html
+
 ```
 
 ### Running the Tests
@@ -71,9 +75,12 @@ The API exposes the following endpoints:
 
 ### Configuration (run full API)
 
-Configure your MongoDB connection string in `appsettings.json`:
+If you want to run the API, you will need a MongoDB database:
 
 - [MongoDB](https://www.mongodb.com/try/download/community)
+
+
+Then, configure your MongoDB connection string in `appsettings.json`:
 
 ```
 { "ConnectionStrings": { "MongoDb": "mongodb://localhost:27017/yourdatabase" } }
