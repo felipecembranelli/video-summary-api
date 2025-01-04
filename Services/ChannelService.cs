@@ -30,8 +30,7 @@ namespace OpenAiVideoSummary.Api.Service
         public async Task<List<Channel>> GetAllChannelsAsync()
         {
 
-            //return await _channelRepository.GetAllAsync();
-            return null;
+            return await _channelRepository.GetAllAsync();
         }
 
         /// <summary>
