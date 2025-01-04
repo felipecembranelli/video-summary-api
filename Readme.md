@@ -8,54 +8,43 @@ Medium article: https://medium.com/@felipecembranelli/youtubeblink-an-openai-vid
 
 ![Screen Shot 2024-06-04 at 10 40 50 AM](https://github.com/felipecembranelli/youtubeblink/assets/5788479/9d1e8c24-7536-490c-b22c-c7a4ad8c2745)
 
-
-## Project Structure
-
-
 ## Getting Started
 
-### Prerequisites
+### Prerequisites to access API specification (swagger)
 
-- [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
-- [MongoDB](https://www.mongodb.com/try/download/community)
+- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 
 ### Setup
 
 1. Clone the repository:
 
-git clone https://github.com/yourusername/OpenAiVideoSummary.Api.git cd OpenAiVideoSummary.Api
+```
+git clone https://github.com/felipecembranelli/video-summary-api.git
 
-
+```
 2. Install dependencies:
 
+```
 dotnet restore
 
-3. Add the MongoDB.Driver package:
-
-dotnet add package MongoDB.Driver
-
-4. Add the xUnit and Moq packages for testing:
-
-dotnet add package xunit dotnet add package xunit.runner.visualstudio dotnet add package Moq
-
-### Configuration
-
-Configure your MongoDB connection string in `appsettings.json`:
-
-{ "ConnectionStrings": { "MongoDb": "mongodb://localhost:27017/yourdatabase" } }
-
+```
 
 ### Running the Application
 
 Run the application using the following command:
 
+```
 dotnet run
+
+```
 
 ### Running the Tests
 
 Run the tests using the following command:
 
+```
 dotnet test
+```
 
 ## API Endpoints
 
@@ -79,14 +68,16 @@ The API exposes the following endpoints:
 - `GET /api/videos/{videoId}/summary`: Get the summary for a video
 - `POST /api/videos/{videoId}/summary`: Generate a summary for a video
 
-## Built With
 
-- [.NET 6](https://dotnet.microsoft.com/download/dotnet/6.0)
+### Configuration (run full API)
+
+Configure your MongoDB connection string in `appsettings.json`:
+
 - [MongoDB](https://www.mongodb.com/try/download/community)
-- [xUnit](https://xunit.net/)
-- [Moq]
 
-
+```
+{ "ConnectionStrings": { "MongoDb": "mongodb://localhost:27017/yourdatabase" } }
+```
 
 ## Code Structure
 
