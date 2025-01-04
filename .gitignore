@@ -267,6 +267,5 @@ __pycache__/
 project.lock.json
 project.fragment.lock.json
 artifacts/
-**/Properties/launchSettings.json
 appsettings.json
 appsettings.Development.json
