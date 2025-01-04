@@ -87,7 +87,14 @@ If you want to run the API, you will need a MongoDB database:
 Then, configure your MongoDB connection string in `appsettings.json`:
 
 ```
-{ "ConnectionStrings": { "MongoDb": "mongodb://localhost:27017/yourdatabase" } }
+{
+    "DatabaseSettings": {
+    "ConnectionString": "mongodb://youruser:yoursecret@mongohostport/video",
+    "DatabaseName": "video",
+    "CollectionName": "videos"
+    }
+}
+
 ```
 
 ## Code Structure
