@@ -16,6 +16,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - name: Checking the file system listing
+        run: |
+          ls -al
       - uses: azure/docker-login@v1
         name: Build Docker image
         with:
