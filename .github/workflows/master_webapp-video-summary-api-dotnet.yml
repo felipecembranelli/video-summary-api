@@ -26,7 +26,6 @@ jobs:
       - name: Push Docker image to Azure Container Registry
         run: |
           ls -al
-          pwd
           docker build . -t ${{env.AZURE_CONTAINER_REGISTRY}}/video-summary-api:latest -t ${{ env.AZURE_CONTAINER_REGISTRY }}/video-summary-api:${{ github.sha }}
           docker push ${{ env.AZURE_CONTAINER_REGISTRY }}/video-summary-api:${{ github.sha }}
           docker push  ${{ env.AZURE_CONTAINER_REGISTRY }}/video-summary-api:latest
