@@ -3,6 +3,9 @@
 
 name: Build and deploy ASP.Net Core app to Azure Web App -- webApp-video-summary-api-dotnet
 
+env:
+  AZURE_CONTAINER_REGISTRY: videosummaryacr.azurecr.io
+  AZURE_CONTAINER_REGISTRY_USERNAME: videosummaryacr
 on:
   push:
     branches:
@@ -10,56 +13,19 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up .NET Core
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.x'
-
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
-
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ./myapp
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
-        with:
-          name: .net-app
-          path: ./myapp
-
   deploy:
     runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    permissions:
-      id-token: write #This is required for requesting the JWT
-
     steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
+      - uses: azure/docker-login@v1
+        name: Build Docker image
         with:
-          name: .net-app
-      
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_BD1F6E79BE77443BB912C665370A4148 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_65E49C5B923844AC8A56EA10C426CFD7 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_5876F81F24114F8992FD3316CF966FB6 }}
-
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: 'webApp-video-summary-api-dotnet'
-          slot-name: 'Production'
-          package: .
+          login-server: ${{ env.AZURE_CONTAINER_REGISTRY }}
+          username: ${{ env.AZURE_CONTAINER_REGISTRY_USERNAME }}
+          password: ${{ secrets.VIDEOSUMMARYACRSECRET }}
+          
+      - name: Push Docker image to Azure Container Registry
+        run: |
+          docker build video-summary-api -t ${{env.AZURE_CONTAINER_REGISTRY}}/video-summary-api:latest -t ${{ env.AZURE_CONTAINER_REGISTRY }}/video-summary-api:${{ github.sha }}
+          docker push ${{ env.AZURE_CONTAINER_REGISTRY }}/video-summary-api:${{ github.sha }}
+          docker push  ${{ env.AZURE_CONTAINER_REGISTRY }}/video-summary-api:latest
           
